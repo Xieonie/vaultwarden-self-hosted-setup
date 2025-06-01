@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    env_file: .env # Loads environment variables from .env file
+    volumes:
+      - ./vw-data:/data/ # Mounts a local directory 'vw-data' to /data in the container
+                         # Change './vw-data' if you set a different DATA_FOLDER in .env
+                         # Ensure the host directory exists and has correct permissions.
+    ports:
+      - "127.0.0.1:8080:80" # Exposes Vaultwarden on host port 8080 (localhost only)
+                            # Your reverse proxy will connect to this.
+                            # The internal port is 80 by default, or ROCKET_PORT.
+                            # Change 127.0.0.1:8080 if you need a different host port or IP.
+    # networks: # Optional: define a specific Docker network if needed
+    #   - vaultwarden_network
+
+# Optional: define networks
+# networks:
+#   vaultwarden_network:
+#     driver: bridge
