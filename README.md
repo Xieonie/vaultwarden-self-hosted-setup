@@ -83,14 +83,3 @@ The setup primarily uses Docker Compose.
 * **Backups:** Regularly back up your data and test restore procedures. Store backups securely, preferably off-site and encrypted.
 * **Updates:** Keep Vaultwarden, your Docker environment, and the host system updated.
 * **Firewall:** Use a firewall to restrict access to necessary ports.
-
-
-vaultwarden-self-hosted-setup/
-├── README.md
-├── docker-compose.yml
-├── .env.example # For sensitive variables
-├── config-examples/
-│   └── nginx-proxy-config.md # Anleitung oder Snippet für Reverse Proxy
-└── docs/
-    ├── security-policies.md
-    └── 2fa-setup-guide.md
